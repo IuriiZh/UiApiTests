@@ -12,6 +12,8 @@ public class PropertyReader {
     private final static PropertyReader instance = new PropertyReader();
     private final Properties properties;
 
+    public static String UiUrl = PropertyReader.getInstance().getUiUrl();
+
 
     @SneakyThrows
     public PropertyReader() {
@@ -20,4 +22,16 @@ public class PropertyReader {
             properties.load(reader);
         }
     }
+
+    public String getHeadless() {
+        return properties.getProperty("headless");
+    }
+    public String getBrowser() {
+        return properties.getProperty("browser");
+    }
+
+    public String getUiUrl() {
+        return properties.getProperty("UI_url");
+    }
+
 }
